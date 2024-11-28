@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Park Housing Society</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5f6fa;
+            --text-color: #2c3e50;
+            --shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        body {
+            background-color: #f5f6fa;
+        }
+
+        .header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card h3 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .action-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .recent-activities {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .activity-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-card .number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Green Park Housing Society</div>
+            <nav class="nav-links">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#"><i class="fas fa-user"></i> Profile</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Dashboard Stats -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3>Available Staff</h3>
+                <div class="number" id="staffCount">8</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Maintenance</h3>
+                <div class="number" id="maintenanceCount">5</div>
+            </div>
+            <div class="stat-card">
+                <h3>Events This Week</h3>
+                <div class="number" id="eventCount">2</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Notices</h3>
+                <div class="number" id="noticeCount">3</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-actions">
+            <div class="action-card">
+                <i class="fas fa-wrench"></i>
+                <p>Raise Complaint</p>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-users"></i>
+                <p>Staff Directory</p>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-calendar"></i>
+                <p>Book Facility</p>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-id-card"></i>
+                <p>Visitor Pass</p>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-clipboard"></i>
+                <p>Notice Board</p>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-phone"></i>
+                <p>Emergency Contacts</p>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <h2 class="section-title">Recent Activities</h2>
+        <div class="recent-activities">
+            <div class="activity-item">
+                <p><i class="fas fa-info-circle"></i> New maintenance request: Water leakage in Block A</p>
+                <small>2 hours ago</small>
+            </div>
+            <div class="activity-item">
+                <p><i class="fas fa-calendar-check"></i> Event scheduled: Monthly Society Meeting</p>
+                <small>3 hours ago</small>
+            </div>
+            <div class="activity-item">
+                <p><i class="fas fa-file-alt"></i> Notice: Quarterly maintenance fee due</p>
+                <small>5 hours ago</small>
+            </div>
+            <div class="activity-item">
+                <p><i class="fas fa-user-plus"></i> New visitor registered for Unit 304</p>
+                <small>6 hours ago</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example JavaScript for dynamic updates
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update counts periodically (simulated)
+            setInterval(() => {
+                document.getElementById('staffCount').textContent = 
+                    Math.floor(Math.random() * 3) + 7; // Random number between 7-9
+            }, 5000);
+
+            // Make action cards clickable
+            document.querySelectorAll('.action-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const action = this.querySelector('p').textContent;
+                    alert(`You clicked: ${action}`);
+                    // Here you would typically redirect to the appropriate page
+                });
+            });
+        });
+    </script>
+</body>
+</html>
